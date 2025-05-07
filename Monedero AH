@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Monedero del Ahorro</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: #e3f2fd;
+        }
+        #logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .box {
+            background: white;
+            padding: 25px;
+            margin: 20px auto;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #saldo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOGO -->
+    <img id="logo" src="https://via.placeholder.com/100x100?text=LOGO" alt="Logo del Ahorro">
+
+    <!-- LOGIN -->
+    <div class="box" id="login-box">
+        <h2>LOGIN</h2>
+        <input type="text" id="usuario" placeholder="Usuario">
+        <input type="password" id="contrasena" placeholder="Contraseña">
+        <button onclick="iniciarSesion()">Entrar</button>
+    </div>
+
+    <!-- MONEDERO DEL AHORRO -->
+    <div class="box" id="monedero-box" style="display: none;">
+        <h3>MONEDERO DEL AHORRO</h3>
+        <p>Hola, <span id="nombre-usuario"></span> 👋</p>
+        <p>Tu saldo disponible es:</p>
+        <p id="saldo">$250.00</p>
+    </div>
+
+    <script>
+        function iniciarSesion() {
+            const usuario = document.getElementById('usuario').value;
+            const contrasena = document.getElementById('contrasena').value;
+
+            if (usuario && contrasena) {
+                document.getElementById('nombre-usuario').textContent = usuario;
+                document.getElementById('login-box').style.display = 'none';
+                document.getElementById('monedero-box').style.display = 'block';
+            } else {
+                alert("Completa todos los campos.");
+            }
+        }
+    </script>
+
+</body>
+</html>
