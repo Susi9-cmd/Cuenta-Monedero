@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Cuenta Monedero</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: #f0f0f0;
+        }
+        #logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .login-box, .wallet-box {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: teal;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #wallet {
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOGO -->
+    <img id="logo" src="https://via.placeholder.com/100x100?text=LOGO" alt="Logo">
+
+    <!-- LOGIN -->
+    <div class="login-box">
+        <h2>LOGIN</h2>
+        <input type="text" id="user" placeholder="Usuario"><br>
+        <input type="password" id="pass" placeholder="Contraseña"><br>
+        <button onclick="login()">Ingresar</button>
+    </div>
+
+    <!-- CUENTA MONEDERO -->
+    <div class="wallet-box" id="wallet-box" style="display: none;">
+        <h3>CUENTA MONEDERO</h3>
+        <p>Bienvenido, <span id="username-display"></span></p>
+        <p>Saldo: <span id="wallet">$100.00</span></p>
+    </div>
+
+    <script>
+        function login() {
+            const user = document.getElementById('user').value;
+            const pass = document.getElementById('pass').value;
+
+            if (user && pass) {
+                document.getElementById('username-display').textContent = user;
+                document.querySelector('.login-box').style.display = 'none';
+                document.getElementById('wallet-box').style.display = 'block';
+            } else {
+                alert("Por favor, ingresa usuario y contraseña.");
+            }
+        }
+    </script>
+
+</body>
+</html>
